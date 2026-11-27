@@ -1,40 +1,42 @@
 
-name: Capri Android APK
+name: Capri APK Builder
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   build:
+    name: Build Capri
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download project
-        uses: actions/checkout@v7
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
-      - name: Install Java
-        uses: actions/setup-java@v6
+      - name: Setup Java 17
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Gradle
+      - name: Install Gradle 8.9
         uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: '8.9'
 
       - name: Build APK
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+        run: gradle :app:assembleDebug
 
-      - name: Save APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Capri-APK
           path: '**/build/outputs/apk/debug/*.apk'
+          if-no-files-found: error
           
