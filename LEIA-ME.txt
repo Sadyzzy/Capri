@@ -1,0 +1,9 @@
+1. Android Studio > Open > pasta Capri. Aguarde o Gradle sincronizar.
+2. Palavra "Capri" (offline):
+   a) Crie conta grátis em console.picovoice.ai e copie sua AccessKey.
+   b) Em Porcupine, treine a palavra "Capri" no idioma Portuguese, plataforma Android, e baixe o .ppn.
+      Renomeie para capri.ppn e coloque em app/src/main/assets/
+   c) Baixe porcupine_params_pt.pv (GitHub Picovoice/porcupine > lib/common) e coloque na mesma pasta.
+3. Run no celular. No app: cole a AccessKey Picovoice (e a chave Anthropic só se for usar nuvem), salve,
+   escolha o modelo .litertlm, conceda permissões, ative acessibilidade e sobreposição, inicie a Capri.
+4. Diga "Capri" (bipe) e depois o comando: "abra o WhatsApp".

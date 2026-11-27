@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Capri</string>
+    <string name="acc_desc">Permite que a Capri abra apps, toque em botões e leia a tela quando você pedir por voz.</string>
+</resources>
